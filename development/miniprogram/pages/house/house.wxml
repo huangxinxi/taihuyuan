@@ -1,0 +1,51 @@
+<view >
+  <swiper indicator-dots="true" class="top_swiper"
+    autoplay="true" interval="5000" duration="500" >
+    <block wx:for="{{top_swiper_img_name_list}}" >  
+      <swiper-item> 
+      <image bindtap="click_swiper_Img" 
+      src="{{top_swiper_img_dir}}/{{item}}" data-src="{{top_swiper_img_dir}}/{{item}}" />       
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class = "box">
+  
+    <image bindtap="click_btn_Img" src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/abstract.jpg" 
+    data-src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/abstract.jpg"  class='avatar'></image>
+    <image bindtap="click_btn_Img" src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/catalogue.jpg" 
+    data-src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/catalogue.jpg" class='avatar'></image>
+    <image bindtap="click_btn_Img" src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/map.jpg" 
+    data-src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/map.jpg" class='avatar'></image>
+    
+  <view class="b1">
+    <image src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/简介.png" class="avatar-text"></image>
+    <image src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/目录.png" class="avatar-text"></image>
+    <image src="cloud://cloud-house-v8lqu.636c-cloud-house-v8lqu-1300500709/image/地图.png" class="avatar-text"></image>
+  </view> 
+</view>
+
+
+
+
+<view class="card">
+
+
+<block wx:for="{{dataList}}" > 
+  <view class="card-body" catchtap='tapToIntroPage' data-ms_en_name="{{item.ms_en_name}}">
+    <image src="{{ms_img_dir}}/{{item.ms_en_name}}/{{item.ms_en_name}}.jpg" class="card-thumb" />
+    
+    <view class="card-content">
+      <view class="card-title">{{item.ms_name}}</view>
+      <view class="card-subtitle">{{item.ms_address}}</view>
+    </view>
+    
+  </view>
+    
+<view wx:if="{{dataList.length != index + 1}}" class="card-line" />
+
+</block>
+<view class="loading" hidden="{{!loadMore}}">正在载入更多...</view>
+<view class="loading" hidden="{{!loadAll}}">已加载全部</view>
+</view>

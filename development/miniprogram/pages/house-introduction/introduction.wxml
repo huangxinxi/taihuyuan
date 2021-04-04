@@ -1,0 +1,74 @@
+<!-- introduction.wxml -->
+
+<view class="card" >
+  
+  <image wx:if="{{ms_en_name}}" class="img" src="{{ms_img_dir}}/{{ms_en_name}}/{{ms_en_name}}-top.jpg"></image>
+
+  <!-- 标题 -->
+  <view class="card-body" >
+  <image wx:if="{{ms_en_name}}" class="avatar" src="{{ms_img_dir}}/{{ms_en_name}}/{{ms_en_name}}.jpg"></image>
+    <view class="card-content">
+      <view class="card-name">{{ms_name}}</view>
+      <view class="iconfont icon-dianhualianxis">
+        <text class="tel" selectable='true' bindtap="calling" data-ms_tel="{{ms_tel}}">{{ms_tel}}</text>
+      </view>
+    <view class="iconfont icon-huikuanS">
+      <text class="intro" electable='true'>{{ms_price}}</text>
+    </view>
+    <view class="iconfont icon-dizhi1">
+      <text class="intro" selectable='true'>{{ms_address}}</text>
+    </view>
+    </view> 
+  </view>
+
+<!-- 简介区     -->
+ <view class='content {{readmore.status ? "hidden" : ""}}'>   
+  <view  class="iconfont icon-fapiaoS">
+    <text class="intro" selectable='true'>  简介：
+      {{ms_intro}}
+    </text>
+  </view>
+  </view>
+ <view class='readmore-tip' bindtap='toggle'>{{readmore.tip}}</view>
+<view class="card-line"></view>
+
+  <!-- 图片展示区 -->
+  <view wx:for="{{list}}" wx:key="{{ms_en_name}}" >
+    <image class="img"  bindtap="clickImg" wx:if="{{item<= ms_count_img}}" 
+    src="{{ms_img_dir}}/{{ms_en_name}}/{{ms_en_name}}{{item}}.jpg"
+    data-src="{{ms_img_dir}}/{{ms_en_name}}/{{ms_en_name}}{{item}}.jpg"></image>
+  </view>
+
+</view>
+
+
+
+<!-- <view class="card"  >
+
+<view class="h1">
+  <h1>{{ms_name}}</h1>
+</view>
+<view  class="iconfont icon-fapiaoS">
+  <text class="intro" selectable='true'>   简介：
+    {{ms_intro}}
+  </text>
+</view>
+<view  class="iconfont icon-dianhualianxis">
+<text class="tel" selectable='true' bindtap="calling" data-ms_tel="{{ms_tel}}">   联系方式：{{ms_tel}}</text>
+</view>
+<view class="iconfont icon-dizhi1">
+  <text class="intro" selectable='true' >   民宿地址：{{ms_address}}  </text>
+</view>
+<view class="iconfont icon-huikuanS">
+  <text class="intro" electable='true' >   参考房价：{{ms_price}}    </text>
+</view>
+
+
+<view wx:for="{{list}}" wx:key="{{ms_en_name}}" >
+  <image class="img"  bindtap="clickImg" 
+src="{{ms_img_dir}}/{{ms_en_name}}/{{ms_en_name}}{{item}}.jpg"
+data-src="{{ms_img_dir}}/{{ms_en_name}}/{{ms_en_name}}{{item}}.jpg"></image>
+</view>
+
+
+</view> -->
